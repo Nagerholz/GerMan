@@ -7,6 +7,10 @@
                                                       
 # IMPORTS
 
+from display import header
+
+print(header.color.BLUE, "TEXT")
+
 import sqlite3
 
 if __name__ == "__main__":
