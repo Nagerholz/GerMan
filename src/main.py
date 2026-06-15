@@ -7,9 +7,14 @@
                                                       
 # IMPORTS
 
-from display import header
 
-print(header.color.BLUE, "TEXT")
+# BEISPIEL
+commands = {
+    "add " : ["Standort","*"]
+}
+
+from display import display
+
 
 import sqlite3
 

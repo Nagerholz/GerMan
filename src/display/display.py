@@ -1,3 +1,2 @@
-# IMPORTS 
-
+# IMPORTS
 from display import color
