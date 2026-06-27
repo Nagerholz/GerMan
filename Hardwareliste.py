@@ -1,6 +1,14 @@
 import sqlite3  
 import re
 
+#  ██████╗ ███████╗██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
+# ██╔════╝ ██╔════╝██╔══██╗████╗ ████║██╔══██╗████╗  ██║
+# ██║  ███╗█████╗  ██████╔╝██╔████╔██║███████║██╔██╗ ██║
+# ██║   ██║██╔══╝  ██╔══██╗██║╚██╔╝██║██╔══██║██║╚██╗██║
+# ╚██████╔╝███████╗██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║
+#  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+
+
 conn = sqlite3.connect('/home/daniel/Documents/Schule/Prog/Programmieren/Project/HardwareDB.db')
 cursor = conn.cursor()  #curser() erstellt ein object das SQL befehle ausführen kann
 
