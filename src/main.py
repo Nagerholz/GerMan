@@ -17,12 +17,19 @@ GerManStr = """ ██████╗ ███████╗██████
 ╚██████╔╝███████╗██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║
  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝"""
 
+GerManFarbe = ""
+for each in GerManStr:
+    if each == "█":
+        GerManFarbe += anzeige.farbe.GRUEN + each
+    else:
+        GerManFarbe += anzeige.farbe.BLAU + each
+
 
 
 # DER PROGRAMMCODE STARET HIER
 if __name__ == "__main__":
     while True:
-        print(f"{anzeige.LEEREN}{26*"- "}-\n{anzeige.farbe.GRUEN}{GerManStr}{anzeige.farbe.RESET}\n- - - - - - von Adrian, Eliano und Daniel - - - - - -")
+        print(f"{anzeige.LEEREN}{26*"- "}-\n{anzeige.farbe.GRUEN}{GerManFarbe}{anzeige.farbe.RESET}\n- - - - - - von Adrian, Eliano und Daniel - - - - - -")
 
 
         print("\nWählen Sie eine Funktion.")
@@ -46,4 +53,4 @@ if __name__ == "__main__":
 
             
         input("\nZurück zum Menü\n")
-print("GerMan beendet...")
+print(f"{anzeige.farbe.BLAU}GerMan beendet...{anzeige.farbe.RESET}")
