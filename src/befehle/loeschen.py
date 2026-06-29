@@ -5,7 +5,7 @@ from logik import logik
 # Löschen
 def loeschen():
     print("\nWas möchtest du löschen?")
-    löschenInput = input("1 - Standort\n2 - Gerät\n--- Deine Wahl: ---\n")
+    löschenInput = input("1 - Standort\n2 - Gerät\n--- Ihre Wahl ---\n")
 
     match löschenInput:
         case "1":
