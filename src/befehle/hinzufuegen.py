@@ -19,6 +19,7 @@ def hinzufugen():
             else:
                 print("\nKeine Standorte vorhanden! Bitte zuerst einen Standort anlegen.")
 
+
             print("--- Neuen Standort hinzufügen ---")
             kürzel      = logik.pflichtfeld("Kürzel: ")
             räume       = logik.pflichtfeld("Anzahl Räume: ")
@@ -28,6 +29,7 @@ def hinzufugen():
 
             befehl = "INSERT INTO Standort (Kürzel, Räume, Adresse, Stadt, Postleitzahl) VALUES (?, ?, ?, ?, ?)"
             inserts = (kürzel, räume, adresse, stadt, postleitzahl)
+
 
             #Try Block mir IntegrityError um Key zu checken.
             try:
