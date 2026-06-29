@@ -14,8 +14,6 @@ def setzeKategorie():
         print("Ungültige Eingabe!")
 
 
-
-
 # Pflichgelder Methode
 
 def pflichtfeld(pflichteingabe):
