@@ -5,7 +5,7 @@ from logik import logik
 # Bearbeiten
 def bearbeiten():
     print("\nWas möchtest du bearbeiten?")
-    bearbeitenInput = input("1 - Standort\n2 - Gerät\n--- Deine Wahl: ---\n")
+    bearbeitenInput = input("1 - Standort\n2 - Gerät\n--- Ihre Wahl ---\n")
 
     match bearbeitenInput:
         case "1":
@@ -77,11 +77,7 @@ def bearbeiten():
                     neue_kategorie = logik.setzeKategorie()
                     neuer_hersteller = input(f"Neuer Hersteller [{gerät[2]}]: ").strip() or gerät[2]
                     neues_modell     = input(f"Neues Modell [{gerät[3]}]: ").strip() or gerät[3]
-                    neue_ip          = input(f"Neue IP-Adresse [{gerät[4]}]: ").strip()
-                    if neue_ip:
-                        neue_ip = logik.ipEingabe(f"Neue IP-Adresse [{gerät[4]}]: ")
-                    else:
-                        neue_ip = gerät[4]
+                    neue_ip          = logik.ipEingabe(f"Neue IP-Adresse [{gerät[4]}]: ").strip()
 
                     neue_mac         = input(f"Neue MAC-Adresse [{gerät[5] or '-'}] (Enter überspringen): ").strip()
                     if neue_mac:
@@ -91,7 +87,8 @@ def bearbeiten():
 
                     # Status Auswahl anzeigen, aktuellen anzeigen
                     print(f"Aktueller Status: {gerät[6]}")
-                    neuer_status     = input("Neuen Status wählen? (Enter überspringen): ").strip()
+                    neuer_status     = input("Neuen Status wählen? (Enter überspringen, ja zum ändern): ").strip()
+
                     if neuer_status:
                         neuer_status = logik.statusEingabe()
                     else:
