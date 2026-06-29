@@ -6,7 +6,7 @@
 #  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
                                                       
 # IMPORTS
-
+from display import display
 
 # BEISPIEL
 commands = {
