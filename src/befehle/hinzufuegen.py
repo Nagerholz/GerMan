@@ -1,3 +1,4 @@
+from anzeige import anzeige
 from logik import datenbank
 from logik import logik
 
@@ -5,7 +6,7 @@ from logik import logik
 # Hinzufügen
 def hinzufugen():
     print("\nEinen Standort oder Gerät hinzufügen?")
-    wahlInput = input("1 - Standort\n2 - Gerät\n3 - Abbrechen\n")
+    wahlInput = input(f"{anzeige.farbe.GELB}1 - Standort\n2 - Gerät{anzeige.farbe.ROT}\n3 - Abbrechen\n{anzeige.farbe.RESET}")
 
     match wahlInput:
         case "1":

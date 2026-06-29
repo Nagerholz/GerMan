@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
 
         print("\nWählen Sie eine Funktion.")
-        eingabe = input("1 - Hinzufügen\n2 - Anzeigen\n3 - Suchen\n4 - Bearbeiten\n5 - Löschen\n6 - Beenden\n--- Ihre Wahl ---\n").strip()
+        eingabe = input(f"{anzeige.farbe.GELB}1 - Hinzufügen\n2 - Anzeigen\n3 - Suchen\n4 - Bearbeiten\n5 - Löschen{anzeige.farbe.ROT}\n6 - Beenden{anzeige.farbe.RESET}\n--- Ihre Wahl ---\n").strip()
 
         match eingabe:
             case "1":
