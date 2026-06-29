@@ -1,0 +1,5 @@
+# IMPORTS
+from anzeige import farbe
+
+# BILDSCHIRM RESTLOS LEEREN
+LEEREN = "\033[0;0H\033[3J\033[2J"
