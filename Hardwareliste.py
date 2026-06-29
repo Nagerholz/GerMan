@@ -1,16 +1,30 @@
-import sqlite3  
-import re
+
 
 #  ██████╗ ███████╗██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
 # ██╔════╝ ██╔════╝██╔══██╗████╗ ████║██╔══██╗████╗  ██║
-# ██║  ███╗█████╗  ██████╔╝██╔████╔██║███████║██╔██╗ ██║
+# ██║  ███╗█████╗  ██████╔╝██╔████╔██║███████║██╔██╗ ██║   Made by: Adrian, Elyano und Daniel
 # ██║   ██║██╔══╝  ██╔══██╗██║╚██╔╝██║██╔══██║██║╚██╗██║
 # ╚██████╔╝███████╗██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║
 #  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
 
 
-conn = sqlite3.connect('/home/daniel/Documents/Schule/Prog/Programmieren/Project/HardwareDB.db')
+import sqlite3  
+import re
+import os
+
+
+#Pfad dynamisch ermitteln, __file__ --> Aktueller Pfad des Programms
+#os.path.abspath() --> Absoluter Pfadname
+#os.path.dirname() nimmt nur den Ordner aus dem Pfad
+#os.path.join() hängt Dateinamen dran
+db_pfad = os.path.join(os.path.dirname(os.path.abspath(__file__)), "HardwareDB.db")
+conn = sqlite3.connect(db_pfad)
+cursor = conn.cursor() #curser() erstellt ein object das SQL befehle ausführen kann
+
+"""Hardcoded Pfad zur Datenbank --> Keine Pfad eingabe speichert die DB irgendwo im usr folder, nur in Linux der Fall (?)
+conn = sqlite3.connect('DEIN PFAD')
 cursor = conn.cursor()  #curser() erstellt ein object das SQL befehle ausführen kann
+"""
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS Standort (
                     Kürzel TEXT PRIMARY KEY,
@@ -43,6 +57,7 @@ def pflichtfeld(pflichteingabe):
             return wert
         print("Dieses Feld ist Pflicht, bitte ausfüllen!")
 
+#IP hat max 3 Ziffern im x.x.x.x Format. Jede Zahl von 0-255
 def ipEingabe(eingabe):
     muster = r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$"
     while True:
@@ -54,8 +69,8 @@ def ipEingabe(eingabe):
                 return wert
         print("Ungültige IP-Adresse! Erwartet: z.B 192.168.1.1")
 
+#Akzeptiert XX:XX:XX:XX:XX:XX
 def macEingabe(eingabe):
-    # Akzeptiert XX:XX:XX:XX:XX:XX
     muster = r"^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$"
     while True:
         wert = input(eingabe).strip()
@@ -64,6 +79,9 @@ def macEingabe(eingabe):
         if re.match(muster, wert):
             return wert.upper()
         print("Ungültige MAC-Adresse! Erwartet: z.B. AA:BB:CC:DD:EE:FF")
+
+#Die EIngabe des Statuses, hier wird abgefrag ob man 1, 2 oder 3 auswählt
+#Die Angaben stehen jeweils für Aktiv, Defekt und Ausgemustert. Keine anderen angaben sind möglich
 
 def statusEingabe():
     optionen = {"1": "Aktiv", "2": "Defekt", "3": "Ausgemustert"}
@@ -87,7 +105,7 @@ cursor.execute(sql, val)
 conn.commit()
 """
 
-#What to do?
+#Hier wird entschieden welche der 5 Kernfunktionen ausgeführt werden soll.
 print("Was willst du?")
 doInput = input("1 - Hinzufügen\n2 - Anzeigen\n3 - Suchen\n4 - Bearbeiten\n5 - Löschen\n--- Deine Wahl: ---\n")
 
@@ -249,8 +267,7 @@ match doInput:
             case _:
                 print("Ungültige Eingabe :(")
     
-    # case "4":
-    #Bearbeiten
+
     case "4":
     # Bearbeiten
         print("\nWas möchtest du bearbeiten?")
@@ -461,9 +478,10 @@ match doInput:
 cursor.close()
 
 
-
-
-
-
-
+#  ██████╗ ███████╗██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
+# ██╔════╝ ██╔════╝██╔══██╗████╗ ████║██╔══██╗████╗  ██║
+# ██║  ███╗█████╗  ██████╔╝██╔████╔██║███████║██╔██╗ ██║   Made by: Adrian, Elyano und Daniel
+# ██║   ██║██╔══╝  ██╔══██╗██║╚██╔╝██║██╔══██║██║╚██╗██║
+# ╚██████╔╝███████╗██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║
+#  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
 
