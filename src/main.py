@@ -5,8 +5,6 @@
 # ╚██████╔╝███████╗██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║
 #  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
                                                       
-# EXTERNE IMPORTE
-
 # INTERNE IMPORTE
 from befehle import befehle
 from anzeige import anzeige
