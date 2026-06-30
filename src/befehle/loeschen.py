@@ -40,7 +40,7 @@ def loeschen():
                         print(f"\nStandort '{kürzel}' ({standort[2]}, {standort[3]}) wird gelöscht.")
                         bestätigung = input("Bist du sicher? (ja/nein): ").strip().lower()
 
-                        if bestätigung == "ja":
+                        if bestätigung.lower() == "ja" or bestätigung.lower() == "j":
                             datenbank.cursor.execute("DELETE FROM Standort WHERE Kürzel = ?", (kürzel,))
                             datenbank.conn.commit()
                             print(f"Standort '{kürzel}' erfolgreich gelöscht!")

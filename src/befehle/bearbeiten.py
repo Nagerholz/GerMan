@@ -73,15 +73,24 @@ def bearbeiten():
                     print(f"\nAktuelles Gerät: ID={gerät[0]}, Modell={gerät[3]}, Status={gerät[6]}")
                     print("(Enter drücken um Feld zu behalten)\n")
 
-                    print((f"Neue Kategorie [{gerät[1]}]: ").strip() or gerät[1])
-                    neue_kategorie = logik.setzeKategorie()
+                    neue_kategorie = input((f"Neue Kategorie (’ja’ um zu bearbeiten) [{gerät[1]}]: ").strip() or gerät[1])
+                    if neue_kategorie:
+                        neue_kategorie = logik.setzeKategorie()
+                    else:
+                        neue_kategorie = gerät[1]
+                    
                     neuer_hersteller = input(f"Neuer Hersteller [{gerät[2]}]: ").strip() or gerät[2]
                     neues_modell     = input(f"Neues Modell [{gerät[3]}]: ").strip() or gerät[3]
-                    neue_ip          = logik.ipEingabe(f"Neue IP-Adresse [{gerät[4]}]: ").strip()
+                    
+                    neue_ip          = input(f"Neue IP-Adresse (’ja’ um zu bearbeiten) [{gerät[4]}]: ").strip()
+                    if neue_ip:
+                        neue_ip =  logik.ipEingabe(f"Neue IP-Adresse eingeben [{gerät[4]}]: ").strip()
+                    else:
+                        neue_ip = gerät[4]
 
-                    neue_mac         = input(f"Neue MAC-Adresse [{gerät[5] or '-'}] (Enter überspringen): ").strip()
+                    neue_mac         = input(f"Neue MAC-Adresse (’ja’ um zu bearbeiten) [{gerät[5] or '-'}] (Enter überspringen): ").strip()
                     if neue_mac:
-                        neue_mac = logik.macEingabe(f"Neue MAC-Adresse: ")
+                        neue_mac = logik.macEingabe(f"Neue MAC-Adresse eingeben: ")
                     else:
                         neue_mac = gerät[5]
 

@@ -36,7 +36,7 @@ def hinzufugen():
                 datenbank.cursor.execute(befehl, inserts)
                 datenbank.conn.commit()
                 print(f"Standort '{kürzel}' erfolgreich hinzugefügt!")
-            except datenbank.sqlite3.IntegrityError:
+            except datenbank.sqlite3.IntegrityError: 
                 print(f"Fehler: Kürzel '{kürzel}' existiert bereits!")
 
         case "2":
